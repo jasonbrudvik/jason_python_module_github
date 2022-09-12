@@ -1,0 +1,24 @@
+---
+name: virtual-environment
+channels:
+    # For most modules
+    - conda-forge
+    - defaults
+dependencies:
+    # python!
+    - python
+    # Testing
+    - pytest
+    - tox
+    - tox-conda
+    - toml
+    # Linting
+    - flake8
+    # Packaging
+    - setuptools
+    - wheel
+    - twine
+    - rfc3986
+    - keyring
+    # Analysis
+    - numpy
