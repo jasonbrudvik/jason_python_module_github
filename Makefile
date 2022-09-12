@@ -197,8 +197,8 @@ bump-version: ## Set version number & git tag - today's date plus count for toda
 
 	# Do not push - allow time for checks to be made first
 	$(print_line_blue)
-	printf "$(CYAN)If everything looks ok, push to gitlab:$(NC)\n"
-	printf "  git push origin master\n"
+	printf "$(CYAN)If everything looks ok, push to github:$(NC)\n"
+	printf "  git push origin main\n"
 	printf "  git push origin $$versiontag\n"
 	$(print_line_blue)
 	printf "\n"
