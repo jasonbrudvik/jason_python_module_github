@@ -20,5 +20,5 @@ dependencies:
     - twine
     - rfc3986
     - keyring
-    # Analysis
-    - numpy
+    # Analysis (example)
+    - scipy

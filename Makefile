@@ -137,6 +137,7 @@ BUILD_OUTPUT_FILE := dist/jason_python_module_github-*.tar.gz
 
 # Building of the module package
 $(BUILD_OUTPUT_FILE): $(VENV)/bin/activate setup.cfg
+	rm -rf dist build jason_python_module_github.egg-info
 	source $(VENV)/bin/activate
 	python3 setup.py sdist bdist_wheel
 
