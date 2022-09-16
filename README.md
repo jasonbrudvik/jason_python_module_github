@@ -9,7 +9,7 @@ computer, and also use the files as a template for creating your own module.
 ![example_terminal_output](https://github.com/jasonbrudvik/jason_python_module_github/raw/main/screenshots/example_terminal_output.png)
 
 ## REPOSITORY FILE STRUCTURE
-Here is a list of all the files and directories in this repository (other than
+Here is a list of all the files and directories in this repository.
 the .git directory):
 
 ```bash
@@ -53,22 +53,49 @@ the python files are placed here:
     └── utils.py
 ```
 
-In this example, the heart of my module is the **hello.py** file - it contains
+In this example, the heart of my module is the `hello.py` file - it contains
 the primary function used in this simple application. One could also have
 additional such files.
 
-The **__init__.py** file is an empty file that is required when making a python
+The `__init__.py` file is an empty file that is required when making a python
 module.
 
-The **__main__.py** file contains terminal command argument handling.  It's
-only needed if you want to run your application from the terminal.  In this
-example, terminal commands can be run like:
+The `__main__.py` file contains terminal command argument handling.  It's
+only needed if you want to run your application from the terminal.  For
+example:
 ```bash
 jason_python_module_github --hello Jason
 ```
 
-The **utils.py** file contains some extra utilites that can be used by other
+The `utils.py` file contains some extra utilites that can be used by other
 files.
+
+## MODULE CONFIGURATION
+The module configuration is done in these two files:
+```bash
+├── setup.cfg
+└── setup.py
+```
+
+The `setup.py` file is called during the module building process, and it knows
+to look for information contained within in `setup.cfg`, which includes:
+- the name of the module
+- the version number
+- author information
+- descriptions of the module
+- a url pointing to the repository
+- information about the coding language, licanse, and general area of use
+- a list of dependencies
+- and a way to enable terminal commands in the using `options.entry_points`
+
+The `setup.cfg` file also takes information from three other files:
+- README.md - contains general information about the repository
+- CHANGELOG.md - contains information from git commits and tags
+- LICENSE - a license that is in this case a `BSD` license - there are many
+ to choose from
+
+If you want to make your own version of this repository, then just change all
+the necessary things in `setup.cfg` like module name, dependencies, and so on.
 
 
 ## USING THIS MODULE
