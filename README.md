@@ -1,7 +1,75 @@
 # Jason Python Module Github
-This repository is made to be a simple example of how to create a python module
+This repository is meant to be a simple example of how to create a python
+module, which can then be imported into your python script, or use directly
+from the terminal.
 
-![maxiv](https://github.com/jasonbrudvik/jason_python_module_github/raw/main/screenshots/maxiv_purple_tint.jpg)
+The idea is that you can download and play with this repository on your own
+computer, and also use the files as a template for creating your own module.
+
+![example_terminal_output](https://github.com/jasonbrudvik/jason_python_module_github/raw/main/screenshots/example_terminal_output.png)
+
+## REPOSITORY FILE STRUCTURE
+Here is a list of all the files and directories in this repository (other than
+the .git directory):
+
+```bash
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── development/
+│   └── venv-requirements.yml
+├── .github/
+│   └── workflows/
+│       └── publish-to-test-pypi.yml
+├── .gitignore
+├── jason_python_module_github/
+│   ├── hello.py
+│   ├── __init__.py
+│   ├── __main__.py
+│   └── utils.py
+├── LICENSE
+├── Makefile
+├── README.md
+├── screenshots/
+│   └── example_terminal_output.png
+├── setup.cfg
+├── setup.py
+├── tests/
+│   ├── example_usage_hello.py
+│   └── test_hello.py
+└── tox.ini
+```
+
+The following sections will discuss the different files and what they do.
+
+### PTYHON CODE
+All your python code used for your application should go into a directory that
+is named the same as the repository itself, so in the case of this example,
+the python files are placed here:
+```bash
+└── jason_python_module_github/
+    ├── hello.py
+    ├── __init__.py
+    ├── __main__.py
+    └── utils.py
+```
+
+In this example, the heart of my module is the **hello.py** file - it contains
+the primary function used in this simple application. One could also have
+additional such files.
+
+The **__init__.py** file is an empty file that is required when making a python
+module.
+
+The **__main__.py** file contains terminal command argument handling.  It's
+only needed if you want to run your application from the terminal.  In this
+example, terminal commands can be run like:
+```bash
+jason_python_module_github --hello Jason
+```
+
+The **utils.py** file contains some extra utilites that can be used by other
+files.
+
 
 ## USING THIS MODULE
 If you want to make use of this module, install it via pip into your virtual

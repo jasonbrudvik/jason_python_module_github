@@ -99,7 +99,7 @@ cli-execution: $(KERNEL_SPEC_FILE) ## Test CLI execution with example input
 clean-venv: ## Remove virtual environment
 	rm -rf $(VENV)
 	find . -type f -name '*.pyc' -delete
-
+	rm -rf jason_python_module_github.egg-info
 
 ###############################################################################
 ##@ Testing
@@ -124,7 +124,7 @@ tox-bye-tests: $(VENV)/bin/activate ## Run bye tests
 	tox -e "py3{6,7,8,9}-bye-tests"
 
 clean-test: ## Remove tox and pytest files
-	rm -rf .tox .pytest_cache .eggs
+	rm -rf .tox .pytest_cache .eggs tests/__pycache__
 
 ###############################################################################
 ##@ Building
@@ -239,5 +239,5 @@ upload-pypi: $(BUILD_OUTPUT_FILE) ## Upload the module to PyPi
 	python3 -m twine upload --repository pypi dist/*
 
 clean-build: ## Remove build files
-	rm -rf dist build jason_python_module_github.egg-info
+	rm -rf dist build
 	rm -rf jason_python_module_github/__pycache__
