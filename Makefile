@@ -99,7 +99,6 @@ cli-execution: $(KERNEL_SPEC_FILE) ## Test CLI execution with example input
 clean-venv: ## Remove virtual environment
 	rm -rf $(VENV)
 	find . -type f -name '*.pyc' -delete
-	rm -rf .tox
 
 
 ###############################################################################
@@ -125,7 +124,7 @@ tox-bye-tests: $(VENV)/bin/activate ## Run bye tests
 	tox -e "py3{6,7,8,9}-bye-tests"
 
 clean-test: ## Remove tox and pytest files
-	rm -rf .tox .pytest_cache
+	rm -rf .tox .pytest_cache .eggs
 
 ###############################################################################
 ##@ Building
@@ -219,7 +218,7 @@ changelog: ## Generate simple changelog from git tags and commits
 			printf "## $${previous_tag} ($${tag_date})\n\n" >> CHANGELOG.md
 
 			# Print all commit messages between this tag and the previous
-			git log $${current_tag}...$${previous_tag} --pretty=format:'*  %s [View](https://gitlab.com/MAXIV-SCISW/JUPYTERHUB/jason_python_module_github/-/commit/%H)' --reverse | grep -v Merge >> CHANGELOG.md
+			git log $${previous_tag}...$${current_tag} --pretty=format:'*  %s [View](https://gitlab.com/MAXIV-SCISW/JUPYTERHUB/jason_python_module_github/-/commit/%H)' | grep -v Merge >> CHANGELOG.md
 			printf "\n\n" >> CHANGELOG.md
 		fi
 		previous_tag=$${current_tag}
@@ -241,3 +240,4 @@ upload-pypi: $(BUILD_OUTPUT_FILE) ## Upload the module to PyPi
 
 clean-build: ## Remove build files
 	rm -rf dist build jason_python_module_github.egg-info
+	rm -rf jason_python_module_github/__pycache__
